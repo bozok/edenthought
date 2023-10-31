@@ -1,0 +1,15 @@
+{% extends "journal/layout.html" %}
+
+{% block title %}
+Edenthought | Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container bg-white shadow-md p-5 form-layout">
+  <h2>{{user}}</h2>
+  <p>Welcome, {{user}}! This is your dashboard.</p>
+  <img src="{{ profilePic.profile_pic.url }}" style="width:200px; height: 200px;">
+  <br>
+</div>
+{% endblock %}

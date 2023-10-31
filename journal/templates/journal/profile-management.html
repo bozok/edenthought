@@ -1,0 +1,34 @@
+{% extends "journal/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Edenthought | Profile Management
+{% endblock %}
+
+{% block content %}
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h5>Profile Management</h5>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <br>
+        <button class="btn btn-outline-primary w-100" type="submit">Update Profile</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <h5>Change Avatar</h5>
+    <form method="post" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_pic | crispy }}
+        <br>
+        <button class="btn btn-outline-primary w-100" type="submit">Update Profile Picture</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <h5>Delete Account</h5>
+    <a href="{% url 'delete-account' %}">Proceed to delete your account</a>
+</div>
+<br>
+{% endblock %}

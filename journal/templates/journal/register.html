@@ -1,0 +1,27 @@
+{% extends "journal/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Edenthought | Register
+{% endblock %}
+
+
+{% block content %}
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h3>Create your account</h3>
+    <h5>Share your thoughts today</h5>
+    <br>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+
+        {{ form | crispy }}
+        <br><br>
+        <button class="btn btn-secondary w-100" type="submit"> <i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp; Create Account</button>
+
+    </form>
+    <br>
+    <div class="text-center">
+        <a href="{% url 'login' %}">Already have an account?</a>
+    </div>
+</div>
+{% endblock %}

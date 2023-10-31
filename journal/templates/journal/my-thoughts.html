@@ -1,0 +1,35 @@
+{% extends "journal/layout.html" %}
+
+{% block title %}
+Edenthought | My Thoughts
+{% endblock %}
+
+
+{% block content %}
+
+{% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <p id="message-timer" class="alert alert-success float-center text-center message-text"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; {{ message }}</p>
+    {% endif %}
+{% endfor %}
+
+<br>
+{% for thought in thoughts %}
+<div class="container bg-white shadow-md p-5 form-layout">
+    
+        <h3>{{ thought.title }}</h3>
+        {{ thought.content }}
+        <br>
+        {{ thought.date_posted }}
+        <hr>
+        By, {{ thought.user }}
+        <br>
+        <br>
+        <a class="btn btn-outline-primary w-100 p-2" href="{% url 'update-thought' thought.id %}">Update</a>
+        <br>
+        <br>
+        <a class="btn btn-outline-danger w-100 p-2" href="{% url 'delete-thought' thought.id %}">Delete</a>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

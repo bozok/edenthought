@@ -1,0 +1,20 @@
+{% extends "journal/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Edenthought | New Thought
+{% endblock %}
+
+{% block content %}
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h5>Create your thought</h5>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+
+        {{ form | crispy }}
+        <br>
+        <button class="btn btn-outline-primary w-100" type="submit"> <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Create Thought</button>
+
+    </form>
+</div>
+{% endblock %}
